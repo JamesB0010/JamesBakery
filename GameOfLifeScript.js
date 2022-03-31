@@ -1,4 +1,3 @@
-console.log("lil test");
 //get the drawing stuff ready
 const canvas = document.getElementById("MyCanvas");
 const ctx = canvas.getContext('2d');
