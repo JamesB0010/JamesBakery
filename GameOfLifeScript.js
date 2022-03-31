@@ -3,33 +3,88 @@ const canvas = document.getElementById("MyCanvas");
 const ctx = canvas.getContext('2d');
 
 //declare the amount of miliseconds to pass per update
-const interval = 150;
+var interval = 150;
+var intervalPicker = document.getElementById("updateSpeedSlider");
+intervalPicker.addEventListener("change", () => {
+  clearInterval(refreshIntervalId);
+  interval = event.target.value;
+  refreshIntervalId = setInterval(update, interval);
+}, false)
+
 
 //amount of rows and columns
-var rows = 100;
-var cols = 100;
+var rows = 10;
+var cols = 10;
 
+var refreshIntervalId;
+
+//customise the cell color
 var cellColor = "#FF00FF";
 var colorPicker = document.getElementById("cellColorPicker");
 colorPicker.addEventListener("input", () =>{
   cellColor = event.target.value;
 }, false)
 
-// const sizeSlider = document.getElementById("sizeRange");
-// sizeSlider.oninput = function(){
-//   rows = this.value;
-//   cols = this.value;
-//   console.log(rows);
-// }
+//customise the background color
+var backgroundColor = "black";
+var backColorPicker = document.getElementById("backColorPicker");
+backColorPicker.addEventListener("input", () =>{
+  backgroundColor = event.target.value;
+}, false);
+
+var lineColor = "white";
+var lineColorPicker = document.getElementById("lineColorPicker");
+lineColorPicker.addEventListener("input", () => {
+  lineColor = event.target.value;
+}, false)
+
+ const sizeSlider = document.getElementById("sizeSlider");
+ sizeSlider.addEventListener("change", () => {
+   return;
+   clearInterval(refreshIntervalId);
+   //left is how many new items need to be added to the left of the first column
+   let left = 0;
+
+   //right is how many items need to be added to the right of the first column
+   let right = 0;
+
+   //in case the number is odd round left down and right up
+   left = Math.floor((event.target.value - cols)/2);
+   right = Math.ceil((event.target.value - cols)/2);
+   let newRowLength = 0;
+   for (let mapCol of cells){
+     for (let i = 0; i < left; i++){
+       mapCol.unshift(0);
+     }
+     for (let i = 0; i < right; i++){
+       mapCol.push(0);
+     }
+     newRowLength = mapCol.length;
+   }
+   let newRow = [];
+   for (let i =0; i < newRowLength;i++){
+     newRow.push(0);
+   }
+   for (let i = 0; i < left; i++){
+     cells.unshift(newRow);
+   }
+   for (let i = 0; i < right; i++){
+     cells.push(newRow);
+   }
+   rows += event.target.value;
+   cols += event.target.value;
+   lines();
+ }, false)
+
 //make the canvas background black because it'll look cool
-ctx.fillStyle = 'black';
+ctx.fillStyle =backgroundColor;
 ctx.fillRect(0,0,canvas.width, canvas.height)
-ctx.fillStyle = 'white';
+ctx.fillStyle = lineColor;
 
 function lines(){
   //draw vertical lines on grid
   for (let i = 0; i <= canvas.width; i += canvas.height/ cols){
-      ctx.strokeStyle = 'white';
+      ctx.strokeStyle = lineColor;
       ctx.beginPath();
       ctx.moveTo(i, 0);
       ctx.lineTo(i, 300);
@@ -178,7 +233,8 @@ function compSurroundings(cellCounter, lifeGrid){
 }
 
 function update(){
-  ctx.clearRect(0,0, canvas.width, canvas.height);
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
   let map = []
   for (let i = 0; i < rows; i++){
     let row = [];
@@ -215,9 +271,9 @@ function update(){
       cellCounter ++;
     });
   });
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = lineColor;
   lines()
 }
 
 //after everything has been set up call the update function every interval
-setInterval(update, interval);
+refreshIntervalId = setInterval(update, interval);
