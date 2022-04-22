@@ -1,4 +1,3 @@
-console.log("");
 //get the drawing stuff ready
 const canvas = document.getElementById("MyCanvas");
 const ctx = canvas.getContext('2d');
@@ -6,9 +5,10 @@ const ctx = canvas.getContext('2d');
 //declare the amount of miliseconds to pass per update
 var interval = 150;
 var intervalPicker = document.getElementById("updateSpeedSlider");
-intervalPicker.addEventListener("change", () => {
+intervalPicker.addEventListener("input", () => {
   clearInterval(refreshIntervalId);
   interval = event.target.value;
+  interval = 1000 + (40 - 1000) * ((interval - 40) / (1000 - 40));
   refreshIntervalId = setInterval(update, interval);
 }, false)
 
@@ -24,6 +24,8 @@ var cellColor = "#FF00FF";
 var colorPicker = document.getElementById("cellColorPicker");
 colorPicker.addEventListener("input", () =>{
   cellColor = event.target.value;
+  renderLife();
+  lines();
 }, false)
 
 //customise the background color
@@ -31,51 +33,144 @@ var backgroundColor = "black";
 var backColorPicker = document.getElementById("backColorPicker");
 backColorPicker.addEventListener("input", () =>{
   backgroundColor = event.target.value;
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  renderLife();
+  lines();
 }, false);
 
 var lineColor = "white";
 var lineColorPicker = document.getElementById("lineColorPicker");
 lineColorPicker.addEventListener("input", () => {
   lineColor = event.target.value;
+  renderLife();
+  lines();
 }, false)
 
  const sizeSlider = document.getElementById("sizeSlider");
- sizeSlider.addEventListener("change", () => {
-   return;
+ sizeSlider.addEventListener("input", () => {
    clearInterval(refreshIntervalId);
-   //left is how many new items need to be added to the left of the first column
-   let left = 0;
-
-   //right is how many items need to be added to the right of the first column
-   let right = 0;
-
-   //in case the number is odd round left down and right up
-   left = Math.floor((event.target.value - cols)/2);
-   right = Math.ceil((event.target.value - cols)/2);
-   let newRowLength = 0;
-   for (let mapCol of cells){
-     for (let i = 0; i < left; i++){
-       mapCol.unshift(0);
+   document.getElementById("pause/play").innerText = "Pause"
+   let newCells = [];
+   for (let i = 0; i < event.target.value; i++){
+     let row = [];
+     for (let j = 0; j < event.target.value; j++){
+       //each column in the row
+       row.push(0);
      }
-     for (let i = 0; i < right; i++){
-       mapCol.push(0);
-     }
-     newRowLength = mapCol.length;
+     newCells.push(row);
    }
-   let newRow = [];
-   for (let i =0; i < newRowLength;i++){
-     newRow.push(0);
+
+   //randomly populate newCells
+
+   let randX = [];
+   let randY = [];
+
+   for (let i =0; i < Math.ceil(event.target.value * event.target.value * 0.2); i++){
+     randX.push(Math.floor(Math.random() * event.target.value));
+     randY.push(Math.floor(Math.random() * event.target.value));
    }
-   for (let i = 0; i < left; i++){
-     cells.unshift(newRow);
-   }
-   for (let i = 0; i < right; i++){
-     cells.push(newRow);
-   }
-   rows += event.target.value;
-   cols += event.target.value;
+
+
+for (let i = 0; i < randX.length; i++){
+  newCells[randX[i]][randY[i]] = 1;
+}
+
+
+   cells = newCells;
+   rows = event.target.value;
+   cols = rows;
+   ctx.fillStyle = backgroundColor;
+   ctx.fillRect(0,0,canvas.width,canvas.height);
    lines();
+   refreshIntervalId = setInterval(update, interval);
  }, false)
+
+ function clearGrid(){
+   let newCells = [];
+   for (let i = 0; i < rows; i++){
+     let row = [];
+     for (let j = 0; j < rows; j++){
+       //each column in the row
+       row.push(0);
+     }
+     newCells.push(row);
+   }
+
+   cells = newCells;
+   ctx.fillStyle = backgroundColor;
+   ctx.fillRect(0,0,canvas.width,canvas.height);
+   lines();
+ }
+
+const playPauseButton = document.getElementById("pause/play");
+ function playPause(){
+   if (playPauseButton.innerText == "Pause"){
+     clearInterval(refreshIntervalId);
+     playPauseButton.innerText = "Play";
+   }
+   else {
+     refreshIntervalId = setInterval(update, interval);
+     playPauseButton.innerText = "Pause";
+   }
+ }
+
+ function renderLife() {
+   let cellCounter = 0;
+   cells.forEach((cell) => {
+     cell.forEach((spot) =>{
+       //calculate the index (column and row) of the current cell
+       let colPos = getColById(cellCounter);
+       let rowPos = getRowById(cellCounter);
+
+       //rendering below no logic should go here
+       //if the value of the cell is 1 then render it as a pink box
+       ctx.fillStyle = cellColor;
+       if (cells[colPos][rowPos] === 1){
+         ctx.fillRect(rowPos * canvas.width / cols, colPos * canvas.height / rows, canvas.width/cols, canvas.height/rows);
+       }
+       //before the next loop increment the cell counter
+       cellCounter ++;
+     });
+   });
+ }
+
+ function drawLife(){
+   let rect = canvas.getBoundingClientRect();
+   if (!mouseDown || !(event.clientX > rect.left && event.clientX < rect.right && event.clientY > rect.top && event.clientY < rect.bottom)){
+     return
+   }
+   //calculate what cell has been clicked
+   //to do this first get the x and y relative to the canvas element
+   const x = event.clientX - rect.left;
+   const y = event.clientY - rect.top;
+
+   let cellWidth = canvas.width / cols;
+   let cellHeight = canvas.height / rows;
+
+   let rowId = Math.floor(y / cellHeight);
+   let colId = Math.floor(x / cellWidth);
+
+   cells[rowId][colId] = 1;
+
+
+   renderLife();
+ }
+
+var mouseDown;
+
+addEventListener("mousedown", event => {
+  mouseDown = true;
+  drawLife()
+});
+
+addEventListener("mouseup", event =>{
+  mouseDown = false;
+});
+
+addEventListener("mousemove", event =>{
+  drawLife();
+});
 
 //make the canvas background black because it'll look cool
 ctx.fillStyle =backgroundColor;
@@ -102,7 +197,7 @@ function lines(){
 }
 
 //make an array to hold the contents of each cell
-const cells = [];
+var cells = [];
 
 //each row in cells
 for (let i = 0; i < rows; i++){
@@ -113,6 +208,7 @@ for (let i = 0; i < rows; i++){
   }
   cells.push(row);
 }
+
 
 //now populate some cells
 cells[1][1] = 1;
@@ -234,6 +330,9 @@ function compSurroundings(cellCounter, lifeGrid){
 }
 
 function update(){
+  if (playPauseButton.innerText == "Play"){
+    return
+  }
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0,0,canvas.width,canvas.height);
   let map = []
