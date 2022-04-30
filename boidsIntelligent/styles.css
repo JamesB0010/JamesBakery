@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#myCanvas{
+  position: absolute;
+  background: #000000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#slider1{
+  position: absolute;
+  top: 95%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+#slider1Label{
+  position: absolute;
+  top: 97%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+}
+
+#slider2{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#slider2Label{
+  position: absolute;
+  top: 97%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+}
+
+#slider3{
+  position: absolute;
+  top: 95%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+#slider3Label{
+  position: absolute;
+  top: 97%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+}
+
+#homeButton{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#resetButton{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  color: white;
+}
