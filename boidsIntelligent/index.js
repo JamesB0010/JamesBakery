@@ -28,6 +28,28 @@ separationSlider.addEventListener("input", () =>{
   separation = event.target.value;
 })
 
+var bestSet = document.getElementById("bestSettingsToggle");
+bestSet.addEventListener("click", () => {
+  alignment = 0.4;
+  alignSlider.value = 0.4;
+  cohesion = 0.7;
+  cohesionSlider.value = 0.7;
+  separation = 2.3;
+  separationSlider.value = 2.3;
+})
+
+var trailsButton = document.getElementById("TrailToggle")
+var opacity = 1;
+trailsButton.addEventListener("click",() => {
+  console.log(opacity);
+  if (opacity == 1) {
+    opacity = 0.1;
+  }
+  else {
+    opacity = 1;
+  }
+})
+
 class Boid{
   #x;
   #y;
@@ -335,7 +357,7 @@ for (let i = 0; i < totalBoids; i++){
   hueVal += 360 / totalBoids;
 }
 function update(){
-  ctx.fillStyle = "rgba(0,0,0," + 1;
+  ctx.fillStyle = "rgba(0,0,0," + opacity;
   ctx.fillRect(0,0,canvas.width,canvas.height);
   for (let i = 0; i < totalBoids; i++){
     boidList[i].behave();
