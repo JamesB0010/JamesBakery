@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Podium</title>
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="podiumStyles.css">
+  </head>
+  <body>
+    <div id = "topNavBar" class="topNav">
+      <a id = "navToggle" class = "NavLink" href="#topNavBar">Nav Bar</a>
+      <a id = "newEvt" href="../index.html" class = "fadingEffect" >New Scoring Event</a>
+      <a id = "home" href="../Home/home.html" class = "fadingEffect">Home Screen</a>
+      <a id = "AddPart" href="../EventSetup/eventSetup.html" class = "fadingEffect">Add Participants</a>
+      <a id = "scoreTrack" href="../ScoreTracker/scoreTracker.html" class = "fadingEffect">Score Tracker</a>
+    </div>
+    <h1>Podium</h1><br>
+    <svg width="100vw" height="100vh" xmlns="http://www.w3.org/2000/svg">
+
+     <g>
+      <title>Layer 1</title>
+      <rect id="svg_2" height="40vh" width="25vw" y="30vh" x="37.5vw" stroke="#000" fill="#ffff00"/>
+      <rect id="svg_3" height="20vh" width="20vw" y="50vh" x="62.5vw" stroke="#000" fill="#bf5f00"/>
+      <rect id="svg_4" height="30vh" width="20vw" y="40vh" x="17.5vw" stroke="#000" fill="#b2b2b2"/>
+      <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" stroke-width="0" id="svg_5" y="50vh" x="50vw" stroke="#000" fill="#000000">1</text>
+      <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" stroke-width="0" id="svg_6" y="55vh" x="27.5vw" stroke="#000" fill="#000000">2</text>
+      <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" stroke-width="0" id="svg_7" y="60vh" x="71.25vw" stroke="#000" fill="#000000">3</text>
+     </g>
+    </svg>
+    <p id = "first"></p>
+    <p id = "second"></p>
+    <p id = "third"></p>
+  </body>
+  <script src = "frontend.js"></script>
+</html>

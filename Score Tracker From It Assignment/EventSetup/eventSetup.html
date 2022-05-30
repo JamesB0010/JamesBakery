@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Setup</title>
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="event.css">
+  </head>
+  <body scroll = "yes" style = "overflow:hidden">
+    <input type="checkbox" id = "teamCheck">
+    <label id ="teamCheckLbl" for="teamCheck">Team?</label>
+    <div id = "topNavBar" class="topNav">
+      <a id = "navToggle" class = "NavLink" href="#topNavBar">Nav Bar</a>
+      <a id = "newEvt" href="../index.html" class = "fadingEffect" >New Scoring Event</a>
+      <a id = "home" href="../Home/home.html" class = "fadingEffect">Home Screen</a>
+      <a id = "AddPart" href="../ScoreTracker/scoreTracker.html" class = "fadingEffect">Score tracker</a>
+      <a id = "podLink" href="../podium/podiumPage.html" class = "fadingEffect">Poduim</a>
+    </div>
+    <div class="container">
+      <div class="participants">
+        <div class="add">
+          <p>Add participant</p><br>
+          <input id = "teamName" type="text" placeholder="Individuals Name">
+          <div class="teamMembers">
+            <p id = "teamMembersP">Team Members</p>
+            <input type="text" id="member1" class = "teamMemb" disabled><br>
+            <input type="text" id="member2" class = "teamMemb" disabled><br>
+            <input type="text" id="member3" class = "teamMemb" disabled><br>
+            <input type="text" id="member4" class = "teamMemb" disabled><br>
+            <input type="text" id="member5" class = "teamMemb" disabled>
+          </div>
+          <button id = "SubParticipant" type="submit" name="SubParticipant">Submit</button>
+        </div>
+        <div class="vew">
+          <p id = "partListTitle">participant list</p>
+          <div class="participantsScroll">
+            <ul id = "partList">
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="events">
+        <div class="eventMain">
+          <p>Add Event</p>
+          <input type="text" id = "evtName">
+          <select class = "evtType" id = "teamOrInd">
+            <option value="Team">Team</option>
+            <option value="Individual">Individual</option>
+          </select>
+          <select class = "evtType" id = "skillReq">
+            <option value="Acedemic">Acedemic</option>
+            <option value="Athletic">Athletic</option>
+          </select>
+          <button id = "addEvt" type="submit" name="addEvt">Submit Event</button>
+          <p id = "evtListP">Event List</p>
+          <div class="EventList">
+            <ul id = "evtList">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src = "frontEnd.js"></script>
+  <script src = "backend.js"></script>
+</html>

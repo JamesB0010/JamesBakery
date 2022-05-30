@@ -1,0 +1,257 @@
+*{
+  font-family: sans-serif;
+}
+
+.container{
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  display: grid;
+  width: 100vw;
+  height: 90vh;
+  grid-template-columns: 60vw 30vw;
+  grid-column-gap: 2vw;
+  justify-content: center;
+}
+
+.participants{
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+background-color: #4c548c;
+display: grid;
+grid-template-columns: 40% 40%;
+grid-column-gap: 5%;
+justify-content: center;
+}
+
+.events{
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+background-color: #4c548c;
+display: grid;
+grid-template-columns: 75%;
+justify-content: center;
+}
+
+.add{
+  background-color: #a4a4d4;
+  display: grid;
+  grid-template-columns: 75%;
+  grid-template-rows: 10% 1% 10% 60%;
+  padding-bottom: 5%;
+  justify-content: center;
+}
+
+.teamMembers{
+  background-color: #4c548c;
+  display: grid;
+  grid-template-columns: 80%;
+  grid-template-rows: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  justify-content: center;
+  transform: translate(0, 5%);
+}
+
+.vew{
+  background-color: #a4a4d4;
+  display: grid;
+  grid-template-columns: 80%;
+  /*grid-template-rows: 50px 85%;*/
+  grid-template-rows: 50px 680px;
+  justify-content: center;
+}
+
+.eventMain{
+  padding-bottom: 2.5vh;
+  background-color: #a4a4d4;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 1fr 0.5fr 1fr 1fr 1fr 1fr 325px;
+  grid-row-gap: 0.5vh;
+}
+
+.evtType{
+  height: 50%;
+  background-color: #1CE8A4;
+  color: #30455a;
+}
+
+.evtType *{
+  height: 50%;
+  background-color: #1CE8A4;
+  color: #30455a;
+}
+
+.EventList{
+  background-color: #1CE8A4;
+  overflow-y: scroll;
+  transform: translate(0, 0);
+  height: 300px;
+}
+
+#SubParticipant{
+  /* color: #1CE8A4;
+  background-color: #4C548C;
+  border:1px solid #30445a; */
+  height: 10vh;
+  transform: translate(0,50%);
+}
+
+input{
+  width: 50%;
+  transform: translate(30%, 0);
+  background-color: #1CE8A4;
+}
+
+.participantsScroll{
+  transform: translate(0, 8%);
+  height: 100%;
+  background-color: #1CE8A4;
+  overflow-y: scroll;
+}
+
+li{
+  background-color: #1CE8A4;
+}
+
+#partListTitle{
+  height: 100%;
+}
+
+p{
+  text-align: center;
+  color: #30445a;
+  background-color: #1CE8A4;
+  line-height: 300%;
+  padding-bottom: 2px;
+  border: 1px solid #30445a;
+}
+
+#teamName{
+  color: #30445a;
+  background-color: #1CE8A4;
+  width: 96%;
+  transform: translate(0, -10%);
+  border: 1px solid #30445a;
+  height: 50%;
+}
+
+#teamMembersP{
+  height: 40%;
+}
+
+.teamMemb{
+  color: #30445a;
+  width: 100%;
+  transform: translate(-2.5%, 0);
+}
+
+#addEvt{
+    height: 75%;
+    transform: translate(0, -30%);
+}
+
+#evtListP{
+  transform: translate(0, -50%);
+}
+
+#teamOrInd{
+  transform: translate(0, 40%);
+}
+
+#evtName{
+  width: 95%;
+  transform: translate(0, 0);
+}
+
+.topNav{
+  background-color: #30445a;
+  height: 6vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topNav a{
+  color: white;
+  text-decoration: none;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.topNav a:hover{
+  font-size: 110%;
+  color: #1ce8a4;
+  background-color: black;
+}
+
+.fadingEffect{
+  visibility: hidden;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  padding-bottom: 1vh;
+  border: 1px solid #1CE8A4;
+}
+
+.dropDownHide{
+  display: none;
+}
+
+.dropDownShow{
+  display: block;
+  cursor: pointer;
+  background-color: #46f5ca;
+}
+
+.grab{
+  cursor: grab;
+}
+
+.completed{
+  background-color: grey;
+}
+
+.evtListItems{
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+.eventLiStyle{
+  margin: 0;
+  text-align: left;
+  border: 0px solid black;
+  height: 30px;
+  color: black;
+  background-color: #46f5ca;
+}
+
+#teamCheck{
+  position: absolute;
+  left: 21%;
+  top: 220px;
+  width: 10%;
+}
+
+#teamCheckLbl{
+  display: block;
+  position: absolute;
+  top: 215px;
+  left: 12.5%;
+  background-color: #1CE8A4;
+  width: 15%;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}

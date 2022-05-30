@@ -1,0 +1,48 @@
+.topNav{
+  background-color: #30445a;
+  height: 6vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topNav a{
+  color: white;
+  text-decoration: none;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.topNav a:hover{
+  font-size: 110%;
+  color: #1ce8a4;
+  background-color: black;
+}
+
+.fadingEffect{
+  visibility: hidden;
+}
+
+#first{
+  position: absolute;
+  left: 48.5vw;
+  top: 46.125vh;
+  color: #1CE8A4;
+}
+#second{
+  position: absolute;
+  left: 27.5vw;
+  top: 56vh;
+  color: #1CE8A4;
+}
+#third{
+  position: absolute;
+  left: 70vw;
+  top: 66.125vh;
+  color: #1CE8A4;
+}

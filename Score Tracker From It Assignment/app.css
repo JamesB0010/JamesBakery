@@ -1,0 +1,64 @@
+*{
+  background-color: #30445a;
+}
+
+h1{
+  text-align: center;
+  color:#1CE8A4;
+  font-size: 400%
+}
+
+button{
+  color: #1CE8A4;
+  background-color: #4C548C;
+  border:1px solid #A4A4D4;
+}
+
+button:hover{
+  background-color: #5500ff;
+  color: white;
+  box-shadow: 0 0 6px 1px #7fffff;
+  border-color: #7fffff;
+transition: all 200ms ease-out;
+}
+
+button:active{
+  background-color: purple;
+}
+
+#startButton{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 10vh;
+  width: 50vw;
+}
+
+#Continue{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,200%);
+  height: 5vh;
+  width: 25vw;
+}
+
+/* Home page*/
+#setupButton{
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 10vh;
+  width: 25vw;
+}
+
+#trackerButton{
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 10vh;
+  width: 25vw;
+}

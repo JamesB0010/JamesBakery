@@ -1,0 +1,201 @@
+.container{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas: "Events score";
+  grid-template-rows: 88vh;
+  grid-column-gap: 2vh;
+}
+
+.eventBackground{
+  background-color: #4C548C;
+  grid-area: "Events";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas: "left right";
+  padding-top: 2.5%;
+  padding-bottom: 0;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+.scoreBackground{
+  background-color: #4C548C;
+  padding-bottom: 0;
+  grid-area: "score";
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 7fr;
+  grid-template-areas: "title"
+  "info";
+}
+
+.ScoreBoardD{
+  background-color: red;
+  grid-area: "info";
+  width: 80%;
+  height: 92.5%;
+  transform: translate(12.5%, 0);
+  background-color: #a4a4d4;
+  overflow-y: scroll;
+
+}
+
+.eventList{
+  background-color: #a4a4d4;
+  display: grid;
+  grid-template-rows: 5vh 70vh;
+  grid-template-columns: auto;
+  grid-row-gap: 5vh;
+  grid-template-areas:
+  "title"
+  "scrollable";
+  justify-content: center;
+  align-items: center;
+}
+
+.EvtList{
+  grid-area: "scrollable";
+  background-color: #4C548C;
+  height: 70vh;
+  width: 30vw;
+  /*transform: translate(0, 15%);*/
+  overflow-y: scroll;
+}
+
+.eventSort{
+  background-color: #a4a4d4;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 5vh 50vh 10vh;
+  grid-template-areas:
+  "title"
+  "scrollable";
+  grid-row-gap: 5vh;
+  justify-content: center;
+}
+
+.sortList{
+  grid-area: "scrollable";
+  background-color: #4C548C;
+  height: 60vh;
+  width: 30vw;
+  transform: translate(0, 0);
+  overflow-y: scroll;
+}
+
+#eventListP{
+  text-align: center;
+  grid-area: "title";
+  background-color: #1ce8a4;
+  color: #ffffff;
+  border: 2px solid #4C548C;
+  width: 100%;
+  height: 100%;
+  line-height: 225%;
+  padding-bottom: 2px;
+  transform: translate(0, 35%);
+}
+
+#partListP{
+  text-align: center;
+  grid-area: "title";
+  background-color: #1ce8a4;
+  color: #ffffff;
+  border: 2px solid #4C548C;
+  width: 100%;
+  height: 100%;
+  line-height: 225%;
+  padding-bottom: 2px;
+}
+
+#scoreBoardP{
+  text-align: center;
+  grid-area: "title";
+  background-color: #1ce8a4;
+  color: #ffffff;
+  border: 2px solid #4C548C;
+  width: 80%;
+  height: 50%;
+  line-height: 225%;
+  padding-bottom: 2px;
+  transform: translate(10%, 25%);
+}
+
+#subSortList{
+  transform: translate(0,85%);
+  height: 80%;
+}
+
+.topNav{
+  background-color: #30445a;
+  height: 6vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topNav a{
+  color: white;
+  text-decoration: none;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.topNav a:hover{
+  font-size: 110%;
+  color: #1ce8a4;
+  background-color: black;
+}
+
+.fadingEffect{
+  visibility: hidden;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #4c548c;
+}
+
+li{
+  padding-bottom: 1vh;
+  border: 1px solid #1CE8A4;
+  color: white;
+  cursor: context-menu;
+}
+
+.EvtList ul li:active{
+  border: 1px solid black;
+}
+
+.selectedEvent{
+  border: 1px solid gold;
+}
+
+.participantsHide{
+  display: none;
+}
+
+.participantsShow{
+  display: block;
+  cursor: grab;
+  background-color: #30445a;
+  outline: 1px solid #1CE8A4;
+  color: white;
+  text-align: left;
+}
+
+.participantsShow p{
+  padding: 2vh 0 2vh;
+}
