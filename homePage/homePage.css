@@ -1,0 +1,79 @@
+#projects{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+  "C1 C2 C3"
+  "C4 C5 C6"
+  "C7 C8 C9";
+  padding: 5px;
+  grid-gap: 10px;
+}
+
+#gameOfLife{
+  grid-area: "C1";
+  background-color: black;
+}
+
+#gameOfLife:hover{
+  grid-area: "C1";
+  border-color: green;
+}
+
+#hangoutWithFriends{
+  grid-area: "C2";
+  background-color: black;
+}
+
+#hangoutWithFriends:hover{
+  grid-area: "C2";
+  border-color: blue;
+}
+
+#boidsRandomMovement{
+  grid-area: "C3";
+  background-color: black;
+}
+
+#boidsRandomMovement:hover{
+  grid-area: "C3";
+  border-color: red;
+}
+
+#boidsIntelligentMovement{
+  grid-area: "C4";
+  background-color: black;
+}
+
+#boidsIntelligentMovement:hover{
+  grid-area: "C4";
+  border-color: fuchsia;
+}
+
+.projectCard{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.projectCard p{
+  font-size: 125%;
+}
+
+.cardOverlay{
+  background-color: rgba(0,0,0,0);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 240px;
+  transform: translate(0, 0);
+  /*117*/
+  height: 235px;
+}
+
+.cardOverlay:hover{
+  background-color: fuchsia;
+  /*background-color: red;*/
+}

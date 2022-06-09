@@ -1,0 +1,80 @@
+body{
+  background-color: black;
+}
+h1{
+  color:fuchsia;
+  font-size: 400%;
+}
+
+h2{
+  color: fuchsia;
+  font-size: 200%;
+}
+
+p{
+  align: center;
+  color:white;
+  line-height: 1px;
+}
+
+
+.meat{
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+
+#desc{
+  position: absolute;
+  top:35%;
+  color: white;
+  font-size: 150%;
+  text-decoration:none;
+}
+
+#desc:hover{
+  color: fuchsia;
+}
+
+.main{
+  display: grid;
+  place-items: center;
+}
+
+/*Add a black background color to top navigation bar */
+.topnav{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  overflow: hidden;
+}
+
+/* style the links inside the navbar*/
+.topnav a{
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/*change the color of links on hover*/
+.topnav a:hover{
+  color: fuchsia;
+}
+
+#projects{
+  padding: 0px;
+  height:725px;
+  width:725px;
+  background-color:#f3f3f3;
+}
+
+#upcoming{
+  padding: 0px;
+  height:400px;
+  width:725px;
+  background-color:#f3f3f3;
+}
