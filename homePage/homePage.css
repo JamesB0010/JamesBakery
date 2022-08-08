@@ -8,72 +8,50 @@
   "C7 C8 C9";
   padding: 5px;
   grid-gap: 10px;
-}
-
-#gameOfLife{
-  grid-area: "C1";
-  background-color: black;
-}
-
-#gameOfLife:hover{
-  grid-area: "C1";
-  border-color: green;
-}
-
-#hangoutWithFriends{
-  grid-area: "C2";
-  background-color: black;
-}
-
-#hangoutWithFriends:hover{
-  grid-area: "C2";
-  border-color: blue;
-}
-
-#boidsRandomMovement{
-  grid-area: "C3";
-  background-color: black;
-}
-
-#boidsRandomMovement:hover{
-  grid-area: "C3";
-  border-color: red;
-}
-
-#boidsIntelligentMovement{
-  grid-area: "C4";
-  background-color: black;
-}
-
-#boidsIntelligentMovement:hover{
-  grid-area: "C4";
-  border-color: fuchsia;
+  cursor: pointer;
 }
 
 .projectCard{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: 2px solid black;
-}
-
-.projectCard p{
-  font-size: 125%;
-}
-
-.cardOverlay{
-  background-color: rgba(0,0,0,0);
-  transition-property: background-color;
-  transition-duration: 0.5s;
   position: absolute;
-  width: 240px;
-  transform: translate(0, 0);
-  /*117*/
-  height: 235px;
+  width: 215px;
+  height: 215px;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
 }
 
-.cardOverlay:hover{
-  background-color: fuchsia;
-  /*background-color: red;*/
+.cardContainer:hover .projectCard{
+  transform: rotateY(180deg);
+}
+
+.projectCard div{
+  border-radius: 20px;
+}
+
+.front{
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: black;
+}
+
+.back{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: fuchsia;
+  transform: rotateY(180deg);
+  word-wrap: break-word;
+}
+
+.back p{
+  font-size: 2vw;
+  margin: 10px;
 }
